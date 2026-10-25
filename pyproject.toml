@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uit-confession-crawler"
+version = "0.1.0"
+description = "Resumable Facebook UI crawler with manual browser login and explicit coverage reporting"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["playwright>=1.48,<2"]
+
+[project.optional-dependencies]
+analysis = [
+    "httpx>=0.27",
+    "jsonschema>=4.20",
+    "tiktoken>=0.12",
+]
+
+[project.scripts]
+uit-crawler = "uit_crawler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
